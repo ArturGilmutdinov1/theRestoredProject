@@ -1,0 +1,16 @@
+.sidebar {
+   grid-area: nav;
+   background-color: rgb(57, 57, 228);
+ }
+ .setting{
+   margin: 20px 0px;
+ }
+.item{
+  color: black;
+  font-size:20px;
+  text-decoration: none;
+ }
+ .active{
+  color:white;
+  font-size:20px;
+ }

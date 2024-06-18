@@ -1,0 +1,24 @@
+.content{
+   display: grid;
+   min-height: 260px;
+   grid-template-columns: 10px 2fr 10fr;
+   grid-template-rows: 1fr;
+   border-bottom: 1px solid #000000;
+}
+.dialog{
+   grid-column-start: 2;
+   border-right: 1px solid #000000;
+
+}
+.message{
+   margin: 5px;
+}
+.text{
+       margin: 20px 0px 20px 20px;
+      resize:none;
+      height: 100px;
+      width: 900px;
+}
+.send{
+   margin: 0px 0px 20px 20px;
+}

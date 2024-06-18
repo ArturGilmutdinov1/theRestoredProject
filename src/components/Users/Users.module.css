@@ -1,0 +1,10 @@
+.conteiner{
+   display: flex;
+}
+.userPhoto{
+   height: 100px;
+   height: 100px;
+}
+.button{
+   display: inline-block;
+}

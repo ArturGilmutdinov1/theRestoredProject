@@ -1,0 +1,15 @@
+ul li{list-style-type: none;}
+
+.App { 
+  display: grid;
+ grid-template-areas:
+"header header header"
+"nav content content";
+ grid-template-rows: 100px 1fr;
+  grid-template-columns: 2fr 10fr;
+}
+
+.appWrapper {
+  grid-area: content;
+  border: 1px solid #000000;
+}

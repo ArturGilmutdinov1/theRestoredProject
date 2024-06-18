@@ -1,0 +1,11 @@
+.song{
+   display: flex;
+}
+.buttomPlay{
+   width: 20px;
+   height: 20px;
+}
+.play{
+   width: 20px;
+   height: 20px;
+}

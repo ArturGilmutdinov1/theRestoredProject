@@ -1,0 +1,23 @@
+
+ .board{
+  background: url('https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663340980_17-mykaleidoscope-ru-p-samie-krasivie-vodopadi-mira-krasivo-17.jpg') 0 0/100% 100% no-repeat;;
+  height: 300px;
+ }
+ .content__flex{
+   display: flex;
+   margin:10px;
+ }
+ .photo img{
+   height: 200px;
+ }
+ .information{
+  margin:10px;
+ }
+ .setting{
+  width: 20px;
+ }
+
+  
+
+
+ 

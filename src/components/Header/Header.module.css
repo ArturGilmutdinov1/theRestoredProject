@@ -1,0 +1,11 @@
+.header {
+   grid-area: header;
+   padding: 5px 20px;
+   background-color: blueviolet;
+ }
+ .header img{
+ height: 75px;
+ }
+ .login{
+  float: right;
+ }

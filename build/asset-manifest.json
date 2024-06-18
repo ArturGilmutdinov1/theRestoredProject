@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f7ee6a18.css",
+    "main.js": "/static/js/main.c3a91226.js",
+    "static/css/184.bbb91fcd.chunk.css": "/static/css/184.bbb91fcd.chunk.css",
+    "static/js/184.d849e692.chunk.js": "/static/js/184.d849e692.chunk.js",
+    "static/css/937.fafcd34b.chunk.css": "/static/css/937.fafcd34b.chunk.css",
+    "static/js/937.d9b0087b.chunk.js": "/static/js/937.d9b0087b.chunk.js",
+    "static/css/323.2d8b2955.chunk.css": "/static/css/323.2d8b2955.chunk.css",
+    "static/js/323.2e70d2d7.chunk.js": "/static/js/323.2e70d2d7.chunk.js",
+    "static/js/787.d4aba7ab.chunk.js": "/static/js/787.d4aba7ab.chunk.js",
+    "static/media/Bean Eater-1s-200px.gif": "/static/media/Bean Eater-1s-200px.53064f9ced64cfa8319b.gif",
+    "index.html": "/index.html",
+    "main.f7ee6a18.css.map": "/static/css/main.f7ee6a18.css.map",
+    "main.c3a91226.js.map": "/static/js/main.c3a91226.js.map",
+    "184.bbb91fcd.chunk.css.map": "/static/css/184.bbb91fcd.chunk.css.map",
+    "184.d849e692.chunk.js.map": "/static/js/184.d849e692.chunk.js.map",
+    "937.fafcd34b.chunk.css.map": "/static/css/937.fafcd34b.chunk.css.map",
+    "937.d9b0087b.chunk.js.map": "/static/js/937.d9b0087b.chunk.js.map",
+    "323.2d8b2955.chunk.css.map": "/static/css/323.2d8b2955.chunk.css.map",
+    "323.2e70d2d7.chunk.js.map": "/static/js/323.2e70d2d7.chunk.js.map",
+    "787.d4aba7ab.chunk.js.map": "/static/js/787.d4aba7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7ee6a18.css",
+    "static/js/main.c3a91226.js"
+  ]
+}
