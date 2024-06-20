@@ -39,9 +39,15 @@ export type initialStateType = {
 }
 let initialState = {
    postData: [
-      { id: 1, message: 'хехех', like: 1 },
-      { id: 2, message: 'asdхех', like: 2 },
-      { id: 3, message: 'adsasdad', like: 3 },
+      { id: 1, message: 'хороший день', like: 1 },
+      { id: 2, message: 'замечательный день', like: 2 },
+      { id: 3, message: 'замечательный я', like: 3 },
+      { id: 4, message: 'смотрю на гору', like: 3 },
+      { id: 5, message: 'смотрю на тебя', like: 3 },
+      { id: 6, message: 'смотрю на себя', like: 3 },
+      { id: 7, message: 'лежу', like: 3 },
+      { id: 8, message: 'уснул', like: 3 },
+      { id: 9, message: 'думаю о Башкири', like: 3 },
    ],
    newPostText: "",
    profile: null,

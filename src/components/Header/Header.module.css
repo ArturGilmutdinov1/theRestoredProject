@@ -1,10 +1,12 @@
 .header {
-   grid-area: header;
    padding: 5px 20px;
-   background-color: blueviolet;
+   background-color: #C7C5C5;
+ }
+ .headerMain{
+  margin: 0px 20% 0px 20%;
  }
  .header img{
- height: 75px;
+ height: 70px;
  }
  .login{
   float: right;

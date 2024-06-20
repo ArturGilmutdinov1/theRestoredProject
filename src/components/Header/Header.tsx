@@ -16,15 +16,17 @@ const Header: React.FC<PropsType> = (props) => {
       setCalled(!called)
    }
    return <header className={stl.header}>
-      <img src='https://www.svgrepo.com/show/396535/fox.svg' alt=""></img>
-      <div className={stl.login}>
-         {props.isAuth
-            ? <div onClick={pressTheButton}>
-               {props.login}
-               {called && <ModuleWindow logout={props.logout} />}
-               {!called && null}
-            </div>
-            : <NavLink to={'/login'}>войти</NavLink>}
+      <div className={stl.headerMain}>
+         <img src='https://www.svgrepo.com/show/396535/fox.svg' alt=""></img>
+         <div className={stl.login}>
+            {props.isAuth
+               ? <div onClick={pressTheButton}>
+                  {props.login}
+                  {called && <ModuleWindow logout={props.logout} />}
+                  {!called && null}
+               </div>
+               : <NavLink to={'/login'}>войти</NavLink>}
+         </div>
       </div>
    </header>
 

@@ -15,6 +15,9 @@ export enum ResultCodesWitchCapcthaEnum {
 }
 
 
+
+
+
 export const usersApi = {
    getUsers(currentPage = 1, pageSize = 10) {
       return intstance.get(`users?page=${currentPage}& count=${pageSize}`)
@@ -63,6 +66,9 @@ export const profileApi = {
       return intstance.put(`profile`, profile)
    }
 }
+
+
+
 
 
 type meResponseType = {

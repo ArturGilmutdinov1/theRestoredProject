@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { connect } from "react-redux";
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
+import stl from './App.module.css';
 import HeaderConteiner from './components/Header/HeaderConteiner';
 import NavBar from './components/NavBar/NavBar';
 import ProfileContainer from './components/ProFile/ProfileConteiner';
@@ -28,21 +28,23 @@ class App extends React.Component {
     }
     return (
       <HashRouter>
-        <div className="App">
-          <HeaderConteiner />
-          <NavBar />
-          <div className='appWrapper'>
-            <Suspense >
-              <Routes>
-                <Route path="/" element={<Navigate to="/profile" />} />
-                <Route path='/profile/:userId?' element={<ProfileContainer />} />
-                <Route path='/dialogs/*' element={<DialogsConteiner />} />
-                <Route path='/friends/*' element={<UsersConteiner />} />
-                <Route path='/music/*' element={<MusicConteiner />} />
-                <Route path='/login/*' element={<Login />} />
+        <div className={stl.App}>
+          <HeaderConteiner className={stl.header} />
+          <div className={stl.appWrapper}>
+            <NavBar />
+            <div className={stl.main}>
+              <Suspense >
+                <Routes>
+                  <Route path="/" element={<Navigate to="/profile" />} />
+                  <Route path='/profile/:userId?' element={<ProfileContainer />} />
+                  <Route path='/dialogs/*' element={<DialogsConteiner />} />
+                  <Route path='/friends/*' element={<UsersConteiner />} />
+                  <Route path='/music/*' element={<MusicConteiner />} />
+                  <Route path='/login/*' element={<Login />} />
 
-              </Routes>
-            </Suspense>
+                </Routes>
+              </Suspense>
+            </div>
           </div>
         </div>
       </HashRouter>

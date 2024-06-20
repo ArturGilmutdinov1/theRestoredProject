@@ -8,7 +8,6 @@ const NavBar = () => {
          <li><NavLink to='/dialogs' className={navData => navData.isActive ? stl.active : stl.item}>Message</NavLink></li>
          <li><NavLink to='/news' className={navData => navData.isActive ? stl.active : stl.item}>News</NavLink></li>
          <li><NavLink to='/music' className={navData => navData.isActive ? stl.active : stl.item}>Music</NavLink></li>
-         <li className={stl.setting}>Setting</li>
          <li><NavLink to='/friends' className={navData => navData.isActive ? stl.active : stl.item}>Friends</NavLink></li>
       </ul>
    </nav>

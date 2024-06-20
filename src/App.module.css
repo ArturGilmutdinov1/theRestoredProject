@@ -1,0 +1,14 @@
+nav ul li{
+  list-style-type: none;}
+
+.appWrapper{
+  margin: 0px 20% 0px 20%;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 100%
+}
+
+.main{
+  min-height: 1250px;
+  border: 1px solid #000000;
+}
