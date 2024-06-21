@@ -22,7 +22,7 @@ const Users: React.FC<PropsType> = (props) => {
          <div className={stl.conteiner}>
             <div>
                <NavLink to={'/proFile/' + users.id}>
-                  <img src={users.photos.small != null ? users.photos.small : "https://4x4photo.ru/wp-content/uploads/2023/08/91fdb41a-bd83-4993-b9ce-7ec0e34d35a9.jpg"} alt="" className={stl.userPhoto} />
+                  <img src={users.photos.small != null ? users.photos.small : 'https://gas-kvas.com/uploads/posts/2023-01/1673412252_gas-kvas-com-p-kvadratnie-risunki-anime-6.jpg'} alt="" className={stl.userPhoto} />
                </NavLink>
             </div>
             <div>{users.name}</div>

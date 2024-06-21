@@ -8,13 +8,13 @@ import ProfileContainer from './components/ProFile/ProfileConteiner';
 
 import Preloader from './components/common/Preloader/Preloader';
 import Login from './components/login/login';
+import News from './components/news/news';
 import { initializedApp } from './redux/app-reducer';
 
 
 const DialogsConteiner = React.lazy(() => import('./components/Dialogs/DialogsConteiner'));
 const UsersConteiner = React.lazy(() => import('./components/Users/UsersConteiner'));
-const MusicConteiner = React.lazy(() => import('./components/music/MusicConteiner'));
-
+const Music = React.lazy(() => import('./components/music/Music'));
 
 class App extends React.Component {
 
@@ -39,7 +39,8 @@ class App extends React.Component {
                   <Route path='/profile/:userId?' element={<ProfileContainer />} />
                   <Route path='/dialogs/*' element={<DialogsConteiner />} />
                   <Route path='/friends/*' element={<UsersConteiner />} />
-                  <Route path='/music/*' element={<MusicConteiner />} />
+                  <Route path='/music/*' element={<Music />} />
+                  <Route path='/news/*' element={<News />} />
                   <Route path='/login/*' element={<Login />} />
 
                 </Routes>
