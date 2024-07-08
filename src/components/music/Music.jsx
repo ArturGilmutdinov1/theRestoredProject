@@ -1,7 +1,7 @@
 
 const Music = () => {
    return <div>
-      в разрботке
+      в разработке
    </div>
 }
 

@@ -38,6 +38,8 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginFormOwnProp
 
 const LoginReduxForm = reduxForm<LoginFormValueType, LoginFormOwnProps>({ form: 'contact' })(LoginForm)
 
+
+
 type mapStateToPropsType = {
    isAuth: boolean
    captcha: string | null
@@ -45,10 +47,6 @@ type mapStateToPropsType = {
 type MapDispatchToPropsType = {
    login: (mail: string, password: string, rememberMe: boolean, captcha: any) => void
 }
-
-
-
-
 const Login: React.FC<mapStateToPropsType & MapDispatchToPropsType> = (props) => {
    debugger
    const onSubmit = (formData: any) => {

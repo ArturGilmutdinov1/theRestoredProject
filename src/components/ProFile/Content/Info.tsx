@@ -14,7 +14,7 @@ type PropsType = {
    updateStatus: (status: string) => void
    userID: number
    savePhoto: (photo: photosType) => void
-   saveDataProfile: (profile: ProfileType) => void
+   saveDataProfile: (profile: ProfileType) => Promise<any>
 }
 
 
@@ -66,7 +66,7 @@ const Info: React.FC<PropsType> = (props) => {
             about me: <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
          </div>
          {(settings === true)
-            ? <SettingForm savePhoto={props.savePhoto} userId={props.userID} saveDataProfile={props.saveDataProfile} setSetings={setSetings} />
+            ? <SettingForm savePhoto={props.savePhoto} userID={props.userID} saveDataProfile={props.saveDataProfile} setSetings={setSetings} />
             : null
          }
       </div>

@@ -18,7 +18,7 @@ type PropsType = {
 const Users: React.FC<PropsType> = (props) => {
    return <div >
       <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged} totalUserCount={props.totalUserCount} pageSize={props.pageSize} />
-      {props.peopleDate.map(users => <div key={users.id}  >
+      {props.peopleDate.map(users => <div key={users.id}  > 
          <div className={stl.conteiner}>
             <div>
                <NavLink to={'/proFile/' + users.id}>
@@ -27,8 +27,6 @@ const Users: React.FC<PropsType> = (props) => {
             </div>
             <div>{users.name}</div>
             <div>{users.status}</div>
-            <div>{'users.location.country'}</div>
-            <div>{'users.location.city'}</div>
          </div>
          <div className={stl.button}>
             {users.followed

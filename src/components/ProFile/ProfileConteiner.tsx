@@ -13,7 +13,7 @@ type DispatchPropsType = {
    getStatusProfile: (userId: number) => void
    updateStatusProfile: (status: string) => void
    savePhoto: (photo: photosType) => void
-   saveDataProfile: (profile: ProfileType) => void
+   saveDataProfile: (profile: ProfileType) => Promise<any>
 }
 type PropsStateType = {
    profile: ProfileType

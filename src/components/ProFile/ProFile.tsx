@@ -8,7 +8,7 @@ type PropsStateType = {
    status: string
    updateStatus: (status: string) => void
    savePhoto: (photo: photosType) => void
-   saveDataProfile: (profile: ProfileType) => void
+   saveDataProfile: (profile: ProfileType) => Promise<any>
    authorizedUserID: number
 }
 

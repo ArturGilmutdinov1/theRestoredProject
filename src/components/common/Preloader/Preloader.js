@@ -1,10 +1,9 @@
-import React from "react";
-import preloader from '../../../assets/images/Bean Eater-1s-200px.gif'
+import preloader from '../../../assets/images/Bean Eater-1s-200px.gif';
 
 
-const Preloader = (props) => {
+const Preloader = () => {
    return <div>
-      <img src={preloader}/>
+      <img src={preloader} />
    </div>
 }
 
