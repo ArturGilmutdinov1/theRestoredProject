@@ -1,4 +1,5 @@
-import profileReducer, { addPostActionCreator } from "./profileReducer";
+import profileReducer, { actions } from "./profileReducer";
+
 let state = {
    postData: [
       { id: 1, message: 'хехех', like: 1 },
@@ -14,14 +15,13 @@ let state = {
 
 it('Add new posts', () => {
    debugger
-   let action = addPostActionCreator('проверяем')
+   let action = actions.addPostActionCreator('проверяем')
 
 
    let newState = profileReducer(state, action)
 
    expect(newState.postData.length).toBe(4)
 });
-
 
 
 

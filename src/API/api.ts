@@ -1,5 +1,5 @@
-import axios from "axios";
-import { ProfileType } from "../redux/profileReducer";
+import axios, { AxiosPromise } from "axios";
+import { ProfileType, photosType } from "../redux/profileReducer";
 
 const intstance = axios.create({
    withCredentials: true,
@@ -13,25 +13,35 @@ export enum ResultCodesEnum {
 export enum ResultCodesWitchCapcthaEnum {
    CaptchaIsRequierd = 10,
 }
+type ResponseType<D = {}, RC = ResultCodesEnum> = {
+   data: D
+   messages: Array<string>
+   resultCode: RC
+}
 
 
 
 
 
+type GetItemsType = {
+   items: any
+   totalCount: number
+   error: string | null
+}
 export const usersApi = {
    getUsers(currentPage = 1, pageSize = 10) {
-      return intstance.get(`users?page=${currentPage}& count=${pageSize}`)
+      return intstance.get<GetItemsType>(`users?page=${currentPage}& count=${pageSize}`)
          .then(response => {
             return response.data
          });
    },
 
    follow(usersId: number) {
-      return intstance.post(`follow/${usersId}`)
+      return intstance.post<ResponseType>(`follow/${usersId}`)
    },
 
    unfollow(usersId: number) {
-      return intstance.delete(`follow/${usersId}`)
+      return intstance.delete(`follow/${usersId}`) as AxiosPromise<ResponseType>
    },
 
    getProfile(userId: number) {
@@ -42,20 +52,26 @@ export const usersApi = {
 
 
 
+
+
+type SavePhotosResponseDataType = {
+   photos: photosType
+}
+
 export const profileApi = {
    getProfile(userId: number) {
-      return intstance.get(`profile/` + userId)
+      return intstance.get<ProfileType>(`profile/` + userId)
    },
    getStatus(userId: number) {
-      return intstance.get('profile/status/' + userId)
+      return intstance.get<string>('profile/status/' + userId)
    },
    updateStatus(status: string) {
-      return intstance.put('profile/status', { status: status })
+      return intstance.put<ResponseType>('profile/status', { status: status })
    },
    savePhoto(photo: any) {
       const formData = new FormData();
       formData.append('image', photo)
-      return intstance.put('profile/photo', formData, {
+      return intstance.put<ResponseType<SavePhotosResponseDataType>>('profile/photo', formData, {
          headers: {
             'Content-Type': 'multipart/form-data'
          }
@@ -72,25 +88,12 @@ export const profileApi = {
 
 
 type meResponseType = {
-   data: {
-      id: number
-      email: string
-      login: string
-   }
-   messages: Array<string>
-   resultCode: ResultCodesEnum
+   id: number
+   email: string
+   login: string
 }
 type loginResponseType = {
-   resultCode: ResultCodesWitchCapcthaEnum | ResultCodesEnum
-   messages: Array<string>
-   data: {
-      userId: number
-   }
-}
-type logoutResponseType = {
-   resultCode: ResultCodesEnum
-   messages: Array<string>
-   data: {}
+   userId: number
 }
 type getCaptchaType = {
    url: string
@@ -98,13 +101,13 @@ type getCaptchaType = {
 
 export const autApi = {
    me() {
-      return intstance.get<meResponseType>(`auth/me/`).then(res => res.data)
+      return intstance.get<ResponseType<meResponseType>>(`auth/me/`).then(res => res.data)
    },
    login(email: string, password: string, rememberMe: boolean = false, captcha: null | string = null) {
-      return intstance.post<loginResponseType>(`auth/login`, { email, password, rememberMe, captcha })
+      return intstance.post<ResponseType<loginResponseType, ResultCodesEnum | ResultCodesWitchCapcthaEnum>>(`auth/login`, { email, password, rememberMe, captcha })
    },
    logout() {
-      return intstance.delete<logoutResponseType>(`auth/login`)
+      return intstance.delete(`auth/login`)
    },
    getCaptcha() {
       return intstance.get<getCaptchaType>(`/security/get-captcha-url`)

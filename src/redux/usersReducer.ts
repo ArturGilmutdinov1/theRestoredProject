@@ -1,6 +1,5 @@
-import { ThunkAction } from "redux-thunk";
 import { usersApi } from "../API/api";
-import { ActionsTypes, AppStateType } from "./redux-store";
+import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 
 type PhotoType = {
@@ -82,7 +81,7 @@ const usersReducer = (state = initialState, action: ActionType) => {
 }
 
 
-type ActionType = ActionsTypes<typeof actions>
+type ActionType = InferActionsTypes<typeof actions>
 export const actions = {
    acceptFollow: (userId: number) => ({ type: "ACCEPT_FOLLOW", userId: userId } as const),
    acceptUnfollow: (userId: number) => ({ type: "ACCEPT_UNFOLLOW", userId: userId } as const),
@@ -95,7 +94,7 @@ export const actions = {
 
 
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionType>
+type ThunkType = BaseThunkType<ActionType>
 
 export const getUsers = (currentPage: number, pageSize: number): ThunkType => {
 

@@ -1,17 +1,10 @@
-import { ResultCodesEnum } from './../API/api';
-// @ts-ignore
 import { ResultCodesWitchCapcthaEnum, autApi } from "../API/api";
+import { ResultCodesEnum } from './../API/api';
+import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_CAPTCHA = " SET_CAPTCHA"
 
-export type initialStateType = {
-   userId: null | number
-   email: null | string
-   login: null | string
-   isAuth: boolean
-   CaptchaURL: string | null
-}
 let initialState: initialStateType = {
    userId: null,
    email: null,
@@ -21,54 +14,51 @@ let initialState: initialStateType = {
 }
 
 
-const authReducer = (state = initialState, action: any): initialStateType => {
-
+const authReducer = (state = initialState, action: ActionType): initialStateType => {
    switch (action.type) {
       case SET_USER_DATA:
          return {
-            ...action,
+            ...state,
             ...action.data,
          }
       case SET_CAPTCHA:
          return {
-            ...action, CaptchaURL: action.Captcha,
+            ...state, CaptchaURL: action.Captcha,
          }
       default:
          return state;
    }
 }
 
-type setAuthUsersDataType = {
-   userId: number | null
-   email: string | null
-   login: string | null
-   isAuth: boolean | null
-}
-type setAuthUsersType = {
-   type: typeof SET_USER_DATA
-   data: setAuthUsersDataType
-}
-const setAuthUsersData = (userId: number | null, email: string | null, login: string | null, isAuth: boolean): setAuthUsersType => ({ type: SET_USER_DATA, data: { userId, email, login, isAuth } });
 
-type setCaptchaURLType = {
-   type: typeof SET_CAPTCHA
-   Captcha: string
-}
-const setCaptchaURL = (Captcha: string): setCaptchaURLType => ({ type: SET_CAPTCHA, Captcha: Captcha });
 
-export const getAuthUsersData = () => async (dispatch: any) => {
+export const actions = {
+   setAuthUsersData: (userId: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
+      type: SET_USER_DATA, data: { userId, email, login, isAuth }
+   } as const),
+
+   setCaptchaURL: (Captcha: string) => ({
+      type: SET_CAPTCHA, Captcha: Captcha
+   } as const),
+}
+
+
+
+
+
+export const getAuthUsersData = (): ThunkType => async (dispatch) => {
    try {
       let meData = await autApi.me();
       if (meData.resultCode === ResultCodesEnum.Success) {
          let { id, login, email } = meData.data;
-         dispatch(setAuthUsersData(id, email, login, true))
+         dispatch(actions.setAuthUsersData(id, email, login, true))
       }
    } catch (error) {
       alert(error)
    }
 }
 
-export const login = (mail: string, password: string, rememberMe: boolean, captcha: any) => async (dispatch: any) => {
+export const login = (mail: string, password: string, rememberMe: boolean, captcha: any): ThunkType => async (dispatch) => {
    try {
       let response = await autApi.login(mail, password, rememberMe, captcha)
       if (response.data.resultCode === ResultCodesEnum.Success) {
@@ -83,16 +73,32 @@ export const login = (mail: string, password: string, rememberMe: boolean, captc
       alert(error)
    }
 }
-export const logout = () => async (dispatch: any) => {
+export const logout = (): ThunkType => async (dispatch) => {
    let response = await autApi.logout()
    if (response.data.resultCode === ResultCodesEnum.Success) {
-      dispatch(setAuthUsersData(null, null, null, false))
+      dispatch(actions.setAuthUsersData(null, null, null, false))
    }
 }
 
-export const getCaptchaURL = () => async (dispatch: any) => {
+export const getCaptchaURL = (): ThunkType => async (dispatch) => {
    let response = await autApi.getCaptcha()
-   dispatch(setCaptchaURL(response.data.url))
+   dispatch(actions.setCaptchaURL(response.data.url))
 }
+
+
+
+
+export type initialStateType = {
+   userId: null | number
+   email: null | string
+   login: null | string
+   isAuth: boolean
+   CaptchaURL: string | null
+}
+
+
+type ActionType = InferActionsTypes<typeof actions>
+type ThunkType = BaseThunkType<ActionType>
+
 
 export default authReducer;

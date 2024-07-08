@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { witchAuthRedirect } from "../../hoc/witchAuthRedirect";
-import { sendMessageActionCreator } from "../../redux/dialogReducer";
+import { actions } from "../../redux/dialogReducer";
 import { AppStateType } from '../../redux/redux-store';
 import Dialogs from "./Dialogs";
 
@@ -27,7 +27,7 @@ let mapStateToProps = (state: AppStateType) => {
 let mapDispatchToProps = (dispatch: any) => {
    return {
       updateNewMessageBody: (newMessageText: string) => {
-         dispatch(sendMessageActionCreator(newMessageText));
+         dispatch(actions.sendMessageActionCreator(newMessageText));
       }
    }
 };
