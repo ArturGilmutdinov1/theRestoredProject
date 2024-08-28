@@ -20,7 +20,6 @@ type PropsType = {
 
 
 const Info: React.FC<PropsType> = (props) => {
-   debugger
    let [settings, setSetings] = useState(false)
 
    if (!props.profile) {
@@ -33,8 +32,6 @@ const Info: React.FC<PropsType> = (props) => {
 
 
    return <div className={stl.content}>
-      <div className={stl.board}>
-      </div>
       <div className={stl.content__flex}>
          <div ><img src={imgNut} alt="" className={stl.setting} onClick={interactSetting} /></div>
          <div className={stl.photo}>
